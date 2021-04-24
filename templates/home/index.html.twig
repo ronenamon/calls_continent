@@ -1,0 +1,45 @@
+{% extends './base.html.twig' %}
+
+{% block title %}Upload Csv File{% endblock %}
+
+
+
+{% block javascripts %}
+        {{ encore_entry_script_tags('mainScript') }} 
+{% endblock %}
+
+
+{% block body %}
+
+<div class="row">
+<div class="col-lg-10">
+   <form enctype="multipart/form-data">
+      <fieldset>
+         <div class="form-group">
+            <label for="exampleInputFile">Add csv file</label>
+            <input type="file" class="form-control-file" id="CsvInputFile" aria-describedby="fileHelp">
+            <small id="fileHelp" class="form-text text-muted red">
+                  
+            </small>
+         </div>
+         
+         <button type="submit" class="btn btn-primary" id="uploadBtn">upload</button>
+      </fieldset>
+   </form>
+</div>
+
+<div class="col-lg-10">
+
+       <table class="table table-hover mt-5">  
+         <tbody id = "listOfClientData"></tbody>  
+       </table>   
+      
+
+</div>
+
+
+</div>
+{% endblock %}
+
+
+
