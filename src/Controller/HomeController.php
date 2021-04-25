@@ -67,8 +67,9 @@ class HomeController extends AbstractController {
                     
                     
                     //fill array with [ip,continent_code]
-                    //if the ip exist in the array , no request again from api
-                    if( !empty($row[4]) && !isset($ipContinentCode[$row[4]]) ){//ip address array
+                    //if the ip valid and exist in the array , no request again from api
+
+                    if(filter_var($row[4], FILTER_VALIDATE_IP) && !empty($row[4]) && !isset($ipContinentCode[$row[4]]) ){//ip address array
                         $continent_code = $this->get_continent_code_for_ip($row[4]);//get the continent for this ip $row[4]
                         if($continent_code)
                           $ipContinentCode[ $row[4] ] = $continent_code;
@@ -78,7 +79,7 @@ class HomeController extends AbstractController {
                     if(!empty($row[3])){//row[3] = phone number
 
                         //if the customer id not exist in the array need to add with start values
-                        if(!isset($finalResult[$row[0]])){
+                        if(is_numeric($row[0])  && !isset($finalResult[$row[0]])){
                                         
                             $finalResult[$row[0]] = [
                                 "count_same_continent"=>0,
