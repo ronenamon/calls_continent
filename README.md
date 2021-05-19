@@ -6,7 +6,7 @@ TO RUN THIS PROJECT YOU NEED :
  Symfony 5.2.6 
 
 
-1. clone project git clone https://github.com/ronenamon/calls_continent_task.git
+1. clone project git clone https://github.com/ronenamon/calls_continent.git
 
 2. run this commands : 
    
